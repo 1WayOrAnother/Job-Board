@@ -13,8 +13,10 @@ public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
         get("/", (request, response) ->{
-            Job.clearAll();
+//            Job.clearAll();
             Map<String, Object> model = new HashMap<>();
+            ArrayList allJobs = Job.getAll();
+            model.put("allJobs", allJobs);
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -44,14 +46,14 @@ public class App {
             return new ModelAndView(model, "detail.hbs");
         }, new HandlebarsTemplateEngine());
 
-        post("/:id/delete", (request, response) -> {
+        post("jobs/:id/delete", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             int idOfJobToDelete = Integer.parseInt(request.params("id"));
             Job deleteJob = Job.findById(idOfJobToDelete);
             deleteJob.deleteJob();
-            ArrayList allJobs = Job.getAll();
-            model.put("allJobs", allJobs);
-            return new ModelAndView(model, "display.hbs");
+//            ArrayList allJobs = Job.getAll();
+//            model.put("allJobs", allJobs);
+            return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
     }
 }

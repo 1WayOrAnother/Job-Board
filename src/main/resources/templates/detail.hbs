@@ -6,7 +6,9 @@
     <h5>Job Contact Info:</h5>
     <p>{{job.contactInfo}}</p>
 
-    <a href="/{{job.id}}/delete">Delete Listing</a>
+    <form action="jobs/{{job.id}}/delete" method="post">Delete Listing
+    <button type="submit">Delete!</button>
+    </form>
 {{/partial}}
 
 {{> layout.hbs}}
