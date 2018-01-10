@@ -1,0 +1,26 @@
+{{#partial "content"}}
+
+    <h1>Add a Job Listing</h1>
+
+    <form action="/new" method="POST">
+        <label for="title">Job Title</label>
+        <input id="title" name="title" type="text">
+
+        <label for="description">Job Description</label>
+        <input id="description" name="description" type="text">
+
+        <label for="contactInfo">Contact Info</label>
+        <input id="contactInfo" name="contactInfo" type="text">
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <form action="/display" method="GET">
+        <button type="submit">Show all</button>
+    </form>
+
+
+
+{{/partial}}
+
+{{> layout.hbs}}

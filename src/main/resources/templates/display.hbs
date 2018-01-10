@@ -1,0 +1,18 @@
+{{#partial "content"}}
+
+    <h1>Job Board:</h1>
+    {{#if allJobs}}
+        {{#each allJobs}}
+            <p>Job Title: {{title}}</p>
+            <p>Job Description: {{description}}</p>
+            <p>Contact Info: {{contactInfo}}</p>
+            <a href="/{{id}}">Details of Job</a>
+            <p>-----------------------------------------</p>
+        {{/each}}
+    {{else}}
+        <p>There are no more jobs and you must starve</p>
+    {{/if}}
+
+{{/partial}}
+
+{{> layout.hbs}}
